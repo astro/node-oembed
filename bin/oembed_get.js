@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var oembed = require('../lib/oembed');
 
 if (process.argv.length < 3) {

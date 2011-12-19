@@ -4,7 +4,9 @@
   "homepage": "http://github.com/astro/node-oembed",
   "main": "lib/oembed.js",
   "bin": {
-    "oembed_diff_json_xml": "./bin/oembed_diff_json_xml.js"
+    "oembed_diff_json_xml": "./bin/oembed_diff_json_xml.js",
+    "oembed_get": "./bin/oembed_get.js",
+    "oembed_httpd": "./bin/oembed_httpd.js"
   },
   "dependencies": {
     "htmlparser": ">=1.7.3",
