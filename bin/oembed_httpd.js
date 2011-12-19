@@ -19,7 +19,8 @@ function escapeXML(s) {
 
 http.createServer(function(req, res) {
     var m;
-    if (req.url === "/") {
+    if (req.method === 'GET' &&
+	req.url === "/") {
 	res.writeHead(200, { "Content-type": "text/html" });
 	res.write("<!DOCTYPE html>\n");
 	res.write("<html><head><title>node-oembed HTTP service</title>\n");
@@ -43,11 +44,12 @@ http.createServer(function(req, res) {
 	    res.writeHead(307, { "Location": result.thumbnail_url });
 	    res.end();
 	});
-    } else if ((m = req.url.match(/^\/1\/oembed\?(.*)/))) {
+    } else if (req.method === 'GET' &&
+	(m = req.url.match(/^\/1\/oembed\?(.*)/))) {
 	var query = querystring.parse(m[1]);
 	if (!query.url) {
 	    res.writeHead(400, { "Content-type": "text/html" });
-	    res.end("<h1>No URL</h1>");
+	    res.end("<h1>No URL</h1>\n");
 	    return;
 	}
 
@@ -84,12 +86,15 @@ http.createServer(function(req, res) {
 		break;
 	    default:
 		res.writeHead(400, { "Content-type": "text/html" });
-		res.end("<h1>Invalid format</h1>");
+		res.end("<h1>Invalid format</h1>\n");
 		return;
 	    }
 	});
-    } else {
+    } else if (req.method === 'GET') {
 	res.writeHead(404, { "Content-type": "text/html" });
-	res.end("<h1>Not found</h1>");
+	res.end("<h1>Not found</h1>\n");
+    } else {
+	res.writeHead(400, { "Content-type": "text/html" });
+	res.end("<h1>Unsupported HTTP method</h1>\n");
     }
 }).listen(port, host);
