@@ -1,6 +1,7 @@
 {
   "name": "oembed",
   "version": "0.0.0",
+  "homepage": "http://github.com/astro/node-oembed",
   "main": "lib/oembed.js",
   "bin": {
     "oembed_diff_json_xml": "./bin/oembed_diff_json_xml.js"
