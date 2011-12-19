@@ -32,22 +32,22 @@ Features
   * application/json+oembed
   * text/xml+oembed
 
-* Automatic Embed.ly fallback when an API key is provided
+* Automatic [Embed.ly](http://embed.ly/) fallback when an API key is provided
 * Uses htmlparser for discovery and XML parsing
 
 
 Tools (bin/)
 ------------
 
-### oembed_get <URL>
+### oembed_get &lt;URL&gt;
 
 Retrieve and display oEmbed information for a custom URL.
 
-### oembed_httpd <bind-port> [bind-host]
+### oembed_httpd &lt;bind-port&gt; [bind-host]
 
 Replicates the embed.ly API in a simple Web server.
 
-### oembed_diff_json_xml <URL>
+### oembed_diff_json_xml &lt;URL&gt;
 
 Compare JSON and XML descriptors for a URL.
 
@@ -67,6 +67,10 @@ oembed.fetch(url, { maxwidth: 1920 }, function(error, result) {
         console.log("oEmbed result", result);
 });
 ```
+
+The two steps can be executed separately whenever you need more
+control:
+
 * `oembed.discover(url, callback)` finds all `<link rel="alternate">`
   in a document
 * Get and parse descriptors immediately with `oembed.fetchJSON(url,
@@ -77,7 +81,8 @@ oembed.fetch(url, { maxwidth: 1920 }, function(error, result) {
 ### Embed.ly fallback
 
 The Embed.ly service can deliver oEmbed information even for resources
-that don't provide oEmbed links. Go sign up with them and configure
+that don't provide oEmbed links. Go
+[sign up](https://app.embed.ly/pricing/free) with them and configure
 your API key like:
 
 ```javascript
