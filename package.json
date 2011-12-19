@@ -1,7 +1,22 @@
 {
   "name": "oembed",
   "version": "0.0.0",
+  "description": "oEmbed consumer library and tools",
   "homepage": "http://github.com/astro/node-oembed",
+  "author": {
+    "name": "Astro",
+    "email": "astro@spaceboyz.net",
+    "url": "http://spaceboyz.net/~astro/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/astro/node-oembed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/astro/node-oembed/issues",
+    "email": "astro@spaceboyz.net"
+  },
+  "keywords": ["oembed"],
   "main": "lib/oembed.js",
   "bin": {
     "oembed_diff_json_xml": "./bin/oembed_diff_json_xml.js",
