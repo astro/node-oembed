@@ -1,5 +1,5 @@
 == TODO
 
-* Handle relative paths
+* Parameters
 * User-Agent
 * Size limit?
