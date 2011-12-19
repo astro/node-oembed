@@ -33,7 +33,7 @@ Features
   * text/xml+oembed
 
 * Automatic [Embed.ly](http://embed.ly/) fallback when an API key is provided
-* Uses htmlparser for discovery and XML parsing
+* Uses [htmlparser](https://github.com/tautologistics/node-htmlparser/) for HTML and XML parsing
 
 
 Tools (bin/)
