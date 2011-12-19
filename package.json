@@ -1,0 +1,9 @@
+{
+  "name": "oembed",
+  "version": "0.0.0",
+  "main": "lib/oembed.js",
+  "dependencies": {
+    "htmlparser": ">=1.7.3",
+    "request": ">=2.2.9"
+  }
+}
