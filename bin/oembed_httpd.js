@@ -2,7 +2,10 @@
 
 var http = require('http');
 var querystring = require('querystring');
+var fs = require('fs');
+var path = require('path');
 var oembed = require('../lib/oembed');
+oembed.EMBEDLY_KEY = "4f463fb42a5a11e1acbf4040d3dc5c07";
 
 if (process.argv.length < 3) {
     console.error("Usage: " + process.argv.join(' ') + " <listen-port> [listen-host]");
@@ -22,16 +25,11 @@ http.createServer(function(req, res) {
     if (req.method === 'GET' &&
 	req.url === "/") {
 	res.writeHead(200, { "Content-type": "text/html" });
-	res.write("<!DOCTYPE html>\n");
-	res.write("<html><head><title>node-oembed HTTP service</title>\n");
-	res.write("<link rel=\"shortcut icon\" href=\"/favicon.ico\">\n");
-	res.write("</head><body>\n");
-	res.write("<h1>node-oembed HTTP service</h1>");
-	res.write("<p>Request path schema just like the <a href=\"http://embed.ly/docs/endpoints/1/oembed\">Embedly oEmbed API</a>:</p>");
-	res.write("<pre>/1/oembed?url=:url&maxwidth=:maxwidth&maxheight=:maxheight&format=:format&callback=:callback</pre>");
-	res.write("<h2>Example</h2>");
-	res.write("<pre>/1/oembed?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DXZ5TajZYW6Y&amp;format=xml</pre>");
-	res.end("</body></html>\n");
+	fs.readFile(path.join(__dirname, "..", "static", "oembed_httpd.html"),
+		    'utf8', function(err, html) {
+	    res.end(html &&
+		    html.replace("<?insert-http-host?>", req.headers.host));
+	});
     } else if (req.url === "/favicon.ico") {
 	/* Easter egg to prove that it works */
 	oembed.fetch("http://www.youtube.com/watch?v=XZ5TajZYW6Y", null, function(error, result) {

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>node-oembed HTTP service</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body>
+    <h1>node-oembed HTTP service</h1>
+    <p>Request path schema just like the <a href="http://embed.ly/docs/endpoints/1/oembed">Embedly oEmbed API</a>:</p>
+    <pre>GET /1/oembed?url=:url&maxwidth=:maxwidth&maxheight=:maxheight&format=:format&callback=:callback</pre>
+    <h2>Example</h2>
+    <pre>curl "http://<?insert-http-host?>/1/oembed?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DXZ5TajZYW6Y&amp;format=xml"</pre>
+  </body>
+</html>
