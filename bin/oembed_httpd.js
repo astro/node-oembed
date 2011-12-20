@@ -5,7 +5,6 @@ var querystring = require('querystring');
 var fs = require('fs');
 var path = require('path');
 var oembed = require('../lib/oembed');
-oembed.EMBEDLY_KEY = "4f463fb42a5a11e1acbf4040d3dc5c07";
 
 if (process.argv.length < 3) {
     console.error("Usage: " + process.argv.join(' ') + " <listen-port> [listen-host]");
