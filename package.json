@@ -1,6 +1,6 @@
 {
   "name": "oembed",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "oEmbed consumer library and tools",
   "homepage": "http://github.com/astro/node-oembed",
   "author": {
